@@ -1,65 +1,46 @@
 class Solution {
 
-    // Function to return length of longest subsequence of consecutive integers.
+  
     public int longestConsecutive(int[] arr) {
-        int max=arr[0];
-        for(int i=1;i<arr.length;i++){
-            if(arr[i]>max){
-                max=arr[i];
-            }
-        }
-        
-        int min=arr[0];
-        for(int i=1;i<arr.length;i++){
-            if(arr[i]<min){
-                min=arr[i];
-            }
-        }
-        
+       
+        int n=arr.length;
+        int len=1;
         HashSet<Integer> st=new HashSet<>();
-        for(int i=0;i<arr.length;i++){
+        for(int i=0;i<n;i++){
             st.add(arr[i]);
         }
         
+        
         HashSet<Integer> st2=new HashSet<>();
         
+       for(int j=0;j<n;j++){
+    int halval = arr[j];
+    
+    
+    if(!st.contains(halval - 1)){
+        int count = 1;
+        int current = halval;
         
-       int count = 0;
-int val = min;
-
-while (val <= max) {
-    if (st.contains(val)) {
-        count++;
-    } else {
-        if (count > 0) {
-            st2.add(count);  
-            count = 0;        
+        while(st.contains(current + 1)){
+            current++;
+            count++;
         }
+        
+        st2.add(count);   
     }
-    val++;
-}
-
-
-if (count > 0) {
-    st2.add(count);
 }
 
         
-      int i=0;
-      int arr1[]=new int[st.size()];
-      for(int va:st){
-          arr1[i++]=va;
-      }
-      
-      int len = 0;
-for (int val2 : st2) {
-    if (val2 > len) {
-        len = val2;
-    }
-}
-return len;
-       
+        int arr2[]=new int[st2.size()];
         
+      int count=0;
+       for(int val:st2){
+           if(val>count){
+               count=val;
+           }
+       }
+        
+        return count;
         
     }
 }
