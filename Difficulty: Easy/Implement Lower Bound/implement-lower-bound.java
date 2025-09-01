@@ -1,20 +1,20 @@
 class Solution {
     int lowerBound(int[] arr, int target) {
-        int n = arr.length;
-        int index = n;   // agar element bada hai sabse, to n return karna hai
-        int low = 0;
-        int high = n - 1;
-
-        while (low <= high) {
-            int mid = low + (high - low) / 2;
-
-            if (arr[mid] >= target) {
-                index = mid;      // potential answer
-                high = mid - 1;   // left side me aur chhota dhoondho
-            } else {
-                low = mid + 1;    // right side me dhoondho
+        // code here
+        
+        int n=arr.length;
+        int low=0;
+        int higher=n-1;
+        int ans=n;
+        while(low<=higher){
+            int mid=low+(higher-low)/2;
+            if(arr[mid]>=target){
+                ans=mid;
+                higher=mid-1;
+            }else{
+                low=mid+1;
             }
         }
-        return index;
+        return ans;
     }
 }
