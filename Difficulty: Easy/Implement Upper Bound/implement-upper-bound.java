@@ -2,14 +2,14 @@ class Solution {
     int upperBound(int[] arr, int target) {
         // code here
         int n=arr.length;
-        int ans=n;
         int low=0;
-        int high=n-1;
-        while(low<=high){
-            int mid=low+(high-low);
+        int higher=n-1;
+        int ans=n;
+        while(low<=higher){
+            int mid=low+(higher-low)/2;
             if(arr[mid]>target){
                 ans=mid;
-                high=mid-1;
+                higher=mid-1;
             }else{
                 low=mid+1;
             }
