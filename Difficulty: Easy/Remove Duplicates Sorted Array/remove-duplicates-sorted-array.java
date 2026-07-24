@@ -1,19 +1,18 @@
-
-
 class Solution {
     ArrayList<Integer> removeDuplicates(int[] arr) {
-
-        ArrayList<Integer> ans = new ArrayList<>();
-
-        ans.add(arr[0]);
-
-        for(int i = 1; i < arr.length; i++) {
-
-            if(arr[i] != arr[i - 1]) {
-                ans.add(arr[i]);
+        // code here\
+        ArrayList<Integer> st=new ArrayList<>();
+        
+        
+        st.add(arr[0]);
+        
+        for(int i=1;i<arr.length;i++){
+            if(arr[i]!=arr[i-1]){
+                st.add(arr[i]);
             }
         }
-
-        return ans;
+        
+        return st;
+        
     }
 }
